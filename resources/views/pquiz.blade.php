@@ -39,7 +39,7 @@
               <tr>  
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $item->soal }}</td>
-                <td>{{ $item->id_tim }}</td>
+                <td>{{ $item->nama_team }}</td>
                 <td>{{ $item->nilai}}</td>
                 <td>
                   <div class="btn-group" role="group" aria-label="Basic mixed styles example">
