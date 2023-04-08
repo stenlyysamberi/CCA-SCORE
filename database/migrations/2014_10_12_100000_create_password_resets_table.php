@@ -15,7 +15,9 @@ class CreatePasswordResetsTable extends Migration
     {
         Schema::create('tbl_soal', function (Blueprint $table) {
             $table->bigIncrements('id_soal');
-            $table->string('soal');
+            $table->unsignedBigInteger('id_tim');
+            $table->text('soal');
+            $table->integer('nilai');
             $table->timestamp('created_at');
         });
     }
