@@ -21,6 +21,7 @@ class MainModel extends Model
             ->select('tbl_team.nama_team', DB::raw('SUM(tbl_soal.nilai) as total_skor'))
             ->groupBy('tbl_team.nama_team')
             ->orderByDesc('total_skor')
+            ->limit(3)
             ->get();
         
         return $totalSkor;
