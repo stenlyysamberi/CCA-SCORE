@@ -19,7 +19,10 @@
         </div>
 
         <div class="card-body">
-          <h5 class="card-title"><input data-toggle="modal" data-target="#tmbsoal" type="button" value="TAMBA SOAL" class="btn btn-success"></h5>
+          <h5 class="card-title">
+            <input data-toggle="modal" data-target="#tmbsoal" type="button" value="TAMBA SOAL" class="btn btn-success">
+            <input data-toggle="modal" data-target="#tmbtim" type="button" value="TEAM" class="btn btn-primary">
+          </h5>
           <table class="table table-bordered table-striped">
             <thead>
               <tr>
@@ -41,8 +44,8 @@
                 <td>
                   <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                     <button type="button" class="btn btn-danger">DELETED</button>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" data-id="{{ $item->id_soal }}">
-                     UPDATED
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal" data-id="{{ $item->id_soal }}">
+                     SCORE
                     </button>
                   </div>
                 </td>
@@ -145,6 +148,39 @@
     </div>
   </div>
 
+  <!-- Modal -->
+  <div id="tmbtim" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Konten modal-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Team</h4>
+        </div>
+        <div class="modal-body">
+           <div class="card-body">
+              <div class="container-fluid">
+              
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <label for="">Nama Kelompok</label>
+                   
+                    <input class="form-control" type="text" id="namatim">
+                  </div>
+                </div>
+              </div>
+              </div>
+           </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+          <button type="button" id="btntamba_tim" class="btn btn-success" >TAMBA</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
      $(document).ready(function () {
 
@@ -194,7 +230,6 @@
       })
 
       $('#btntamba').click(function(){
-        
         var soal_ = $('#addsoal').val();
           $.ajax({
             type: "POST",
@@ -205,6 +240,27 @@
               console.log(response);
               if (response.pesan = true) {
                 alert("add successfully")
+              }else{
+                alert("Failed")
+              }
+            }
+          });
+
+      })
+
+
+      $('#btntamba_tim').click(function(){
+        var tim = $('#namatim').val();
+
+          $.ajax({
+            type: "POST",
+            url: "/api/addtim",
+            data: {'nama' : tim},
+            dataType: "JSON",
+            success: function (response) {
+              console.log(response);
+              if (response.pesan = true) {
+                alert("add team successfully")
               }else{
                 alert("Failed")
               }

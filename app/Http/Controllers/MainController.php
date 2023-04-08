@@ -62,4 +62,18 @@ class MainController extends Controller
     function delete(){
 
     }
+
+    function addtim(){
+        $data = [
+            'nama_team' => request('nama'),
+            'img' => false
+        ];
+        
+        $y = DB::table('tbl_team')->insert($data);
+        if ($y) {
+            return response()->json(["pesan" => true]);
+           }else{
+            return response()->json(["pesan" => false]);
+           }
+    }
 }

@@ -23,3 +23,5 @@ Route::POST('ubah', 'MainController@updated');
 
 Route::POST('add', 'MainController@added');
 
+Route::POST('addtim', 'MainController@addtim');
+
