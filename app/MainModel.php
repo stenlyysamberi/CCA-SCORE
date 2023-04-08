@@ -13,9 +13,15 @@ class MainModel extends Model
 
     static function getdata(){
         $i = DB::table('tbl_team')
-        ->join('tbl_soal','tbl_team.id_tim','=','tbl_soal.id_tim')
-        ->select('tbl_soal.id_soal','tbl_soal.soal', 'tbl_soal.nilai','tbl_team.id_tim','tbl_team.nama_team')->get();
+        ->leftJoin('tbl_soal', 'tbl_team.id_tim', '=', 'tbl_soal.id_tim')
+        ->where(function ($query) {
+            $query->where('tbl_soal.id_tim', '=', 0)
+                ->orWhereNull('tbl_soal.id_tim');
+        })
+        ->select('tbl_soal.id_soal', 'tbl_soal.soal', 'tbl_soal.nilai', 'tbl_team.id_tim', 'tbl_team.nama_team')
+        ->get();
         return $i;
+
     }
 
     static function getScore(){
