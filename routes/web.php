@@ -12,9 +12,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/',[
+    'uses' => 'MainController@score',
+]);
 
 Route::get('quiz',[
     'uses' => 'MainController@index',

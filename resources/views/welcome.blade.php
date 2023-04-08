@@ -21,7 +21,7 @@
         <div class="row row-cols-1 row-cols-md-3 g-4 py-0">
 
             
-          @foreach ($nilai as $item)
+          @foreach ($score as $item)
           <div class="col">
             <div class="card">
               <img src="assets/img/user1.jfif" class="card-img-top" alt="...">

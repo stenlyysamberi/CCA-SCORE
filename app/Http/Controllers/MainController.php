@@ -15,8 +15,10 @@ class MainController extends Controller
     }
 
     function score(){
+
+        return MainModel::getScore();
         return view('welcome',[
-            "nilai" => MainModel::getScore()
+            "score" => MainModel::getScore()
         ]);
     }
 }
