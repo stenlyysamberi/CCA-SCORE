@@ -32,7 +32,7 @@ class MainController extends Controller
         // melakukan update data pada tabel users dengan id=1
        $x =  DB::table('tbl_soal')
         ->where('id_soal', request('id_soal'))
-        ->update(['soal' => request('soal'), 'nilai' => request('nilai')]);
+        ->update(['soal' => request('soal'), 'nilai' => request('nilai'),'id_tim' => request('id_tim')]);
 
        if ($x) {
         return response()->json(["pesan" => true]);
