@@ -76,9 +76,9 @@
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label for="exampleFormControlSelect1">Team</label>
-                      <select class="form-control" id="exampleFormControlSelect1">
+                      <select class="form-control" id='id_tim'>
                         @foreach($team as $user)
-                          <option id='id_tim' value="{{ $user->id_tim }}">{{ $user->nama_team }}</option>
+                          <option  value="{{ $user->id_tim }}">{{ $user->nama_team }}</option>
                         @endforeach
 
                       </select>
