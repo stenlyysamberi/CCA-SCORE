@@ -117,6 +117,7 @@
   <script>
      $(document).ready(function () {
 
+      //getdata
       $('#myModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget);
         var id = button.data('id');
@@ -135,9 +136,10 @@
             modal.find('#id_soal').val(response.id_soal);
         }});
 
-     })//end model
+      })//end model
 
-     $('#update').click(function(){
+      //updated
+      $('#update').click(function(){
         var id = $('#id_soal').val();
         var soal = $('#soal').val();
         var id_tim = $('#id_tim').val();
@@ -145,7 +147,7 @@
 
           $.ajax({
             type: "POST",
-            url: "/api/ubah/",
+            url: "/api/ubah",
             data: {'id_soal' : id,'soal' : soal,'id_tim':id_tim,'nilai':nilai},
             dataType: "JSON",
             success: function (response) {
