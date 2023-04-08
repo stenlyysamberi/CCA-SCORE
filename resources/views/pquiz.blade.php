@@ -152,32 +152,48 @@
   <div id="tmbtim" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <!-- Konten modal-->
+      <form id="form-data" method="POST" enctype="multipart/form-data">
+        @csrf
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Modal Team</h4>
         </div>
+
         <div class="modal-body">
            <div class="card-body">
               <div class="container-fluid">
               
+           
               <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-6">
                   <div class="form-group">
                     <label for="">Nama Kelompok</label>
-                   
-                    <input class="form-control" type="text" id="namatim">
+                    <input class="form-control" type="text" name="nama" id="namatim">
                   </div>
                 </div>
-              </div>
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="">File</label>
+                    <input class="form-control" type="file" name="gambar" id="gambar">
+                  </div>
+                </div>
+            </div>
+           
+
               </div>
            </div>
         </div>
+
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-          <button type="button" id="btntamba_tim" class="btn btn-success" >TAMBA</button>
+          <button type="submit" id="btntamba_tim" class="btn btn-success" >TAMBA</button>
         </div>
+
       </div>
+    </form>
+
     </div>
   </div>
 
@@ -249,25 +265,25 @@
       })
 
 
-      $('#btntamba_tim').click(function(){
-        var tim = $('#namatim').val();
-
-          $.ajax({
-            type: "POST",
-            url: "/api/addtim",
-            data: {'nama' : tim},
-            dataType: "JSON",
-            success: function (response) {
-              console.log(response);
-              if (response.pesan = true) {
-                alert("add team successfully")
+      $('#form-data').submit(function(e){
+        e.preventDefault(); // Mencegah form submit secara default
+        var formData = new FormData(this);
+        $.ajax({
+          type: "POST",
+          url: "/api/addtim",
+          data: formData,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            console.log(response);
+            if (response.pesan = true) {
+                alert("add successfully")
               }else{
                 alert("Failed")
               }
-            }
-          });
-
-      })
+          }
+        });
+      });
 
 
   });

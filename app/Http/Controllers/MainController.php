@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Validation\Validator;
 use Illuminate\Support\Facades\DB;
 use App\MainModel;
+
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -63,10 +65,31 @@ class MainController extends Controller
 
     }
 
-    function addtim(){
+    function addtim(Request $request){
+
+
+        //return response()->json($request);
+
+        // $validator = $request->validate([
+        //     'nama' => 'required',
+        //     'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // ]);
+        
+        // if ($validator->fails()) {
+        //     return response()->json([
+        //         'message' => $validator->errors()->first(),
+        //         'status' => 'error'
+        //     ]);
+        // }
+        
+        // Simpan gambar ke folder public/images
+        $file = $request->file('gambar');
+        $filename = time() . '.' . $file->getClientOriginalExtension();
+        $file->move(public_path('/assets/img/'), $filename);
+
         $data = [
             'nama_team' => request('nama'),
-            'img' => false
+            'img' => $filename
         ];
         
         $y = DB::table('tbl_team')->insert($data);
