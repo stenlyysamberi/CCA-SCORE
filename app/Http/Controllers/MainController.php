@@ -20,4 +20,9 @@ class MainController extends Controller
             "score" => MainModel::getScore()
         ]);
     }
+
+    function updated($id){
+        //return response()->json($id);
+        return response()->json(MainModel::GetSoal($id));
+    }
 }

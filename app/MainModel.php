@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class MainModel extends Model
 {
 
-    protected $fillable = ['id_tim','soal','nilai'];
+    protected $fillable = ['id_tim','soal','nilai','id_soal'];
     protected $tables = "tbl_soal";
     protected $primary ="id_soal";
 
     static function getdata(){
-        return DB::table('tbl_soal')->select('soal', 'nilai','id_tim')->get();
+        return DB::table('tbl_soal')->select('id_soal','soal', 'nilai','id_tim')->get();
     }
 
     static function getScore(){
@@ -25,5 +25,14 @@ class MainModel extends Model
             ->get();
         
         return $totalSkor;
+    }
+
+    static function GetSoal($id){
+        $user = DB::table('tbl_soal')
+            ->where('id_soal', $id)
+            ->first();
+
+        return $user;
+
     }
 }
