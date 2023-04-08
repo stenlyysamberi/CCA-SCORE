@@ -78,7 +78,7 @@
                       <label for="exampleFormControlSelect1">Team</label>
                       <select class="form-control" id="exampleFormControlSelect1">
                         @foreach($team as $user)
-                          <option value="{{ $user->id_tim }}">{{ $user->nama_team }}</option>
+                          <option id='id_tim' value="{{ $user->id_tim }}">{{ $user->nama_team }}</option>
                         @endforeach
 
                       </select>
@@ -204,9 +204,9 @@
             success: function (response) {
               console.log(response);
               if (response.pesan = true) {
-                alert("Update Berhasil")
+                alert("add successfully")
               }else{
-                alert("Gagal Update")
+                alert("Failed")
               }
             }
           });
