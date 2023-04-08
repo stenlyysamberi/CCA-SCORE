@@ -27,7 +27,7 @@ class MainController extends Controller
     }
 
     function updated(){
-
+        return "ok";
         // melakukan update data pada tabel users dengan id=1
        $x =  DB::table('tbl_soal')
         ->where('id_soal', request('id_soal'))

@@ -147,7 +147,7 @@
           data: {'id_soal' : id,'soal' : soal,'id_tim':id_tim,'nilai':nilai},
           dataType: "JSON",
           success: function (response) {
-            // console.log(response);
+            console.log(response);
             if (response.pesan = true) {
               alert("Update Berhasil")
             }else{
