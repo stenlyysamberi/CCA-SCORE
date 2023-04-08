@@ -141,20 +141,20 @@
         var id_tim = $('#id_tim').val();
         var nilai = $('#nilai').val();
 
-        $.ajax({
-          type: "POST",
-          url: "/api/ubah/",
-          data: {'id_soal' : id,'soal' : soal,'id_tim':id_tim,'nilai':nilai},
-          dataType: "JSON",
-          success: function (response) {
-            console.log(response);
-            if (response.pesan = true) {
-              alert("Update Berhasil")
-            }else{
-              alert("Gagal Update")
+          $.ajax({
+            type: "POST",
+            url: "/api/ubah/",
+            data: {'id_soal' : id,'soal' : soal,'id_tim':id_tim,'nilai':nilai},
+            dataType: "JSON",
+            success: function (response) {
+              console.log(response);
+              if (response.pesan = true) {
+                alert("Update Berhasil")
+              }else{
+                alert("Gagal Update")
+              }
             }
-          }
-        });
+          });
 
       })
 
