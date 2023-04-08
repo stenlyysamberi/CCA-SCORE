@@ -31,8 +31,13 @@ class MainModel extends Model
         $user = DB::table('tbl_soal')
             ->where('id_soal', $id)
             ->first();
-
         return $user;
+
+    }
+
+    static function getTeam(){
+        $users = DB::table('tbl_team')->get();
+        return $users;
 
     }
 }

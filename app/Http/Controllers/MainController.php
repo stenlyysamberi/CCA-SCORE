@@ -10,7 +10,8 @@ class MainController extends Controller
     function index(){
         //return ["data" => MainModel::getdata()];
         return view('pquiz',[
-            "data" => MainModel::getdata()
+            "data" => MainModel::getdata(),
+            'team' => MainModel::getTeam()
         ]);
     }
 
@@ -56,6 +57,9 @@ class MainController extends Controller
            }else{
             return response()->json(["pesan" => false]);
            }
-        
+    }
+
+    function delete(){
+
     }
 }

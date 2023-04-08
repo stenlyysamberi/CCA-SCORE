@@ -77,11 +77,10 @@
                     <div class="form-group">
                       <label for="exampleFormControlSelect1">Team</label>
                       <select class="form-control" id="exampleFormControlSelect1">
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
-                        <option>Option 4</option>
-                        <option>Option 5</option>
+                        @foreach($team as $user)
+                          <option value="{{ $user->id_tim }}">{{ $user->nama_team }}</option>
+                        @endforeach
+
                       </select>
                     </div>
                   </div>
