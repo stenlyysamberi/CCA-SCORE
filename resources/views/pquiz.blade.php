@@ -237,6 +237,7 @@
               console.log(response);
               if (response.pesan = true) {
                 alert("Update Berhasil")
+                $('#myModal').modal('hide');
               }else{
                 alert("Gagal Update")
               }
@@ -256,6 +257,7 @@
               console.log(response);
               if (response.pesan = true) {
                 alert("add successfully")
+                $('#tmbsoal').modal('hide');
               }else{
                 alert("Failed")
               }
@@ -298,6 +300,7 @@
             console.log(response);
             if (response.pesan = true) {
                 alert("add successfully")
+                $('#tmbtim').modal('hide');
               }else{
                 alert("Failed")
               }
