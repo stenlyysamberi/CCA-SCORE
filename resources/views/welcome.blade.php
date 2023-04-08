@@ -21,13 +21,13 @@
         <div class="row row-cols-1 row-cols-md-3 g-4 py-0">
 
             
-          @foreach ($score as $item)
+          @foreach ($nilai as $item)
           <div class="col">
             <div class="card">
               <img src="assets/img/user1.jfif" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title">{{ $score->$nama_team }}</h5>
-                <p class="card-text"><h1 class="h1">{{ $score->$total_skor }}</h1></p>
+                <h5 class="card-title">{{ $nilai->$nama_team }}</h5>
+                <p class="card-text"><h1 class="h1">{{ $nilai->$total_skor }}</h1></p>
               </div>
               {{-- <div class="d-flex justify-content-evenly p-4">
                   <i class="bi bi-facebook"></i>

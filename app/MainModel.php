@@ -16,10 +16,10 @@ class MainModel extends Model
     }
 
     static function getScore(){
-        $totalSkor = DB::table('tbl_tim')
-            ->join('tbl_soal', 'tbl_tim.id_tim', '=', 'tbl_soal.id_tim')
-            ->select('tbl_tim.nama_tim', DB::raw('SUM(tbl_soal.nilai) as total_skor'))
-            ->groupBy('tbl_tim.nama_tim')
+        $totalSkor = DB::table('tbl_team')
+            ->join('tbl_soal', 'tbl_team.id_tim', '=', 'tbl_soal.id_tim')
+            ->select('tbl_team.nama_team', DB::raw('SUM(tbl_soal.nilai) as total_skor'))
+            ->groupBy('tbl_team.nama_team')
             ->orderByDesc('total_skor')
             ->get();
         
