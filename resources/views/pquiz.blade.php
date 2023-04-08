@@ -169,14 +169,14 @@
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label for="">Nama Kelompok</label>
-                    <input class="form-control" type="text" name="nama" id="namatim">
+                    <input required class="form-control" type="text" name="nama" id="namatim">
                   </div>
                 </div>
 
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label for="">File</label>
-                    <input class="form-control" type="file" name="gambar" id="gambar">
+                    <input required class="form-control" type="file" name="gambar" id="gambar">
                   </div>
                 </div>
             </div>
