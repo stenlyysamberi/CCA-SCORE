@@ -88,7 +88,7 @@
 
                   <div class="col-sm-6">
                     <label for="exampleFormControlSelect1">Score</label>
-                    <input hidden type="text" id="id_soal">
+                    <input type="text" id="id_soal">
                     <input type="number" id="nilai" class="form-control">
                   </div>
                   
