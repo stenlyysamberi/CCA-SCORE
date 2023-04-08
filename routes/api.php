@@ -19,5 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::GET('updated/{id}', 'MainController@getSoal');
 
-Route::POST('ubah/', 'MainController@updated');
+Route::POST('ubah', 'MainController@updated');
+
+Route::POST('add', 'MainController@added');
 

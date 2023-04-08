@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>RMSD</title>
+  <title>Quiz - CCA</title>
 
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -19,7 +19,7 @@
         </div>
 
         <div class="card-body">
-          <h5 class="card-title"><input type="button" value="TAMBA SOAL" class="btn btn-success"></h5>
+          <h5 class="card-title"><input data-toggle="modal" data-target="#tmbsoal" type="button" value="TAMBA SOAL" class="btn btn-success"></h5>
           <table class="table table-bordered table-striped">
             <thead>
               <tr>
@@ -114,6 +114,38 @@
     </div>
   </div>
 
+  <!-- Modal -->
+  <div id="tmbsoal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Konten modal-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Soal</h4>
+        </div>
+        <div class="modal-body">
+           <div class="card-body">
+              <div class="container-fluid">
+              
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <label for="">Soal</label>
+                    <textarea class="form-control" name="" id="addsoal" cols="30" rows="10"></textarea>
+                  </div>
+                </div>
+              </div>
+              </div>
+           </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+          <button type="button" id="btntamba" class="btn btn-success" >TAMBA</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
      $(document).ready(function () {
 
@@ -149,6 +181,26 @@
             type: "POST",
             url: "/api/ubah",
             data: {'id_soal' : id,'soal' : soal,'id_tim':id_tim,'nilai':nilai},
+            dataType: "JSON",
+            success: function (response) {
+              console.log(response);
+              if (response.pesan = true) {
+                alert("Update Berhasil")
+              }else{
+                alert("Gagal Update")
+              }
+            }
+          });
+
+      })
+
+      $('#btntamba').click(function(){
+        
+        var soal_ = $('#addsoal').val();
+          $.ajax({
+            type: "POST",
+            url: "/api/add",
+            data: {'soal' : soal_},
             dataType: "JSON",
             success: function (response) {
               console.log(response);

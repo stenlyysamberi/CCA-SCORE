@@ -41,4 +41,21 @@ class MainController extends Controller
 
         //return response()->json(request());
     }
+
+    function added(){
+      
+        $data = [
+            'soal' => request('soal'),
+            'id_tim' => false,
+            'nilai' => false
+        ];
+        
+        $y = DB::table('tbl_soal')->insert($data);
+        if ($y) {
+            return response()->json(["pesan" => true]);
+           }else{
+            return response()->json(["pesan" => false]);
+           }
+        
+    }
 }
