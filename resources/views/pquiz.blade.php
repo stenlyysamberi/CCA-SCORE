@@ -15,7 +15,7 @@
             </div>
 
             <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
+                <h5 class="card-title"><input type="button" value="ADD" class="btn btn-success"></h5>
                 <table class="table table-bordered table-striped">
                     <thead>
                       <tr>
@@ -38,9 +38,8 @@
                         <td>{{ $item->nilai}}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                <button type="button" class="btn btn-danger">Deleted</button>
-                                <button type="button" class="btn btn-warning">Updated</button>
-                                <button type="button" class="btn btn-success">View</button>
+                                <button type="button" class="btn btn-danger">DELETED</button>
+                                <button type="button" class="btn btn-warning">UPDATED</button>
                               </div>
                         </td>
                       </tr>
