@@ -16,53 +16,60 @@
         <h3>TEAM</h3>
         <h4 class="text-muted">CERDAS CERMAT ALKITAB</h4>
         <p>GKI VIADOLOROSA RC MP72</p>
+
+
         <div class="row row-cols-1 row-cols-md-3 g-4 py-0">
-            <div class="col">
-              <div class="card">
-                <img src="assets/img/user1.jfif" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">RAYON I</h5>
-                  <p class="card-text"><h1 class="h1">23</h1></p>
-                </div>
-                {{-- <div class="d-flex justify-content-evenly p-4">
-                    <i class="bi bi-facebook"></i>
-                    <i class="bi bi-linkedin"></i>
-                    <i class="bi bi-envelope-fill"></i>
-                    <i class="bi bi-whatsapp"></i>
-                </div> --}}
+
+            
+          @foreach ($score as $item)
+          <div class="col">
+            <div class="card">
+              <img src="assets/img/user1.jfif" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{ $score->$nama_team }}</h5>
+                <p class="card-text"><h1 class="h1">{{ $score->$total_skor }}</h1></p>
               </div>
+              {{-- <div class="d-flex justify-content-evenly p-4">
+                  <i class="bi bi-facebook"></i>
+                  <i class="bi bi-linkedin"></i>
+                  <i class="bi bi-envelope-fill"></i>
+                  <i class="bi bi-whatsapp"></i>
+              </div> --}}
             </div>
-            <div class="col">
+          </div>
+          @endforeach
+            {{-- <div class="col">
               <div class="card">
                 <img src="assets/img/user3.jfif" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">RAYON II</h5>
                   <p class="card-text"><h1 class="h1">10</h1></p>
                 </div>
-                {{-- <div class="d-flex justify-content-evenly p-4">
+                <div class="d-flex justify-content-evenly p-4">
                     <i class="bi bi-facebook"></i>
                     <i class="bi bi-linkedin"></i>
                     <i class="bi bi-envelope-fill"></i>
                     <i class="bi bi-whatsapp"></i>
-                </div> --}}
+                </div>
               </div>
-            </div>
-            <div class="col">
+            </div> --}}
+
+            {{-- <div class="col">
               <div class="card">
                 <img src="assets/img/user3.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">RAYON III</h5>
                   <p class="card-text"><h1 class="h1">5</h1></p>
                 </div>
-                {{-- <div class="d-flex justify-content-evenly p-4">
+                <div class="d-flex justify-content-evenly p-4">
                     <i class="bi bi-facebook"></i>
                     <i class="bi bi-linkedin"></i>
                     <i class="bi bi-envelope-fill"></i>
                     <i class="bi bi-whatsapp"></i>
-                </div> --}}
+                </div>
               </div>
             </div>
-         
+          --}}
           </div>
     </div>
 

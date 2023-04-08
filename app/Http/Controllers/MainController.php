@@ -13,4 +13,10 @@ class MainController extends Controller
             "data" => MainModel::getdata()
         ]);
     }
+
+    function score(){
+        return view('welcome',[
+            "score" => MainModel::getScore()
+        ]);
+    }
 }
