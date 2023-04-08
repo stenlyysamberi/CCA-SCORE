@@ -123,19 +123,21 @@
         var modal = $(this);
 
 
-        $.ajax({
-          url: '/api/updated/'+id,
-          type: 'GET',
-          dataType: 'json',
-          success: function(response) {
-          // Isikan data ke dalam input dalam modal
-          modal.find('#soal').val(response.soal);
-          modal.find('#team').val(response.id_tim);
-          modal.find('#nilai').val(response.nilai);
-          modal.find('#id_soal').val(response.id_soal);
-      }});
+          $.ajax({
+            url: '/api/updated/'+id,
+            type: 'GET',
+            dataType: 'json',
+            success: function(response) {
+            // Isikan data ke dalam input dalam modal
+            modal.find('#soal').val(response.soal);
+            modal.find('#team').val(response.id_tim);
+            modal.find('#nilai').val(response.nilai);
+            modal.find('#id_soal').val(response.id_soal);
+        }});
 
-      $('#update').click(function(){
+     })//end model
+
+     $('#update').click(function(){
         var id = $('#id_soal').val();
         var soal = $('#soal').val();
         var id_tim = $('#id_tim').val();
@@ -159,11 +161,7 @@
       })
 
 
-
-       
-      })//end model
-
-      });
+  });
   </script>
 
 </body>
