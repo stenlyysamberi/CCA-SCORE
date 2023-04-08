@@ -24,7 +24,7 @@
           @foreach ($score as $item)
           <div class="col">
             <div class="card">
-              <img src="assets/img/user1.jfif" class="card-img-top" alt="...">
+              <img src="assets/img/{{ $item->img}}" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">{{$item->nama_team }}</h5>
                 <p class="card-text"><h1 class="h1">{{$item->total_skor }}</h1><sub>SCORE</sub></p>
