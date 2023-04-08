@@ -16,6 +16,7 @@ class CreateUsersTable extends Migration
         Schema::create('tbl_team', function (Blueprint $table) {
             $table->bigIncrements('id_tim');
             $table->string('nama_team');
+            $table->string('img');
             $table->timestamps();
         });
     }
