@@ -49,7 +49,7 @@ class MainController extends Controller
       
         $data = [
             'soal' => request('soal'),
-            'id_tim' => false,
+            'id_tim' => true,
             'nilai' => false
         ];
         
