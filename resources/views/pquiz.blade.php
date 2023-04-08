@@ -27,7 +27,7 @@
             <thead>
               <tr>
                 <th>NO</th>
-                <th>SOAL</th>
+                <th>SOAL/PERTANYAAN</th>
                 <th>TEAM</th>
                 <th>SCORE</th>
                 <th>ACTION</th>
