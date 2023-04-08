@@ -43,7 +43,7 @@
                 <td>{{ $item->nilai}}</td>
                 <td>
                   <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                    <button type="button" class="btn btn-danger">DELETED</button>
+                    <button type="button" class="btn btn-danger delete-btn" data-id="{{ $item->id_soal }}">DELETED</button>
                     <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal" data-id="{{ $item->id_soal }}">
                      SCORE
                     </button>
@@ -263,6 +263,26 @@
           });
 
       })
+
+      $('.delete-btn').click(function(){
+        var ids = $(this).data('id')
+
+          $.ajax({
+            type: "POST",
+            url: "/api/del",
+            data: {'id' : ids},
+            dataType: "JSON",
+            success: function (response) {
+              console.log(response);
+              if (response.pesan = true) {
+                alert("deleted successfully")
+              }else{
+                alert("Failed")
+              }
+            }
+          });
+
+      });
 
 
       $('#form-data').submit(function(e){

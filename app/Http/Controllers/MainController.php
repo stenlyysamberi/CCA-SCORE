@@ -61,26 +61,19 @@ class MainController extends Controller
            }
     }
 
-    function delete(){
+    function delete( Request $request){
+        $id = $request->id;
+        $deleted = DB::table('tbl_soal')->where('id_soal', $id)->delete();
+
+        if ($deleted) {
+            return response()->json(['pesan' => true]);
+        } else {
+            return response()->json(['pesan' => false]);
+        }
 
     }
 
     function addtim(Request $request){
-
-
-        //return response()->json($request);
-
-        // $validator = $request->validate([
-        //     'nama' => 'required',
-        //     'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        // ]);
-        
-        // if ($validator->fails()) {
-        //     return response()->json([
-        //         'message' => $validator->errors()->first(),
-        //         'status' => 'error'
-        //     ]);
-        // }
         
         // Simpan gambar ke folder public/images
         $file = $request->file('gambar');
