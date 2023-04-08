@@ -19,7 +19,7 @@ class MainModel extends Model
         $totalSkor = DB::table('tbl_team')
             ->join('tbl_soal', 'tbl_team.id_tim', '=', 'tbl_soal.id_tim')
             ->select('tbl_team.img','tbl_team.nama_team', DB::raw('SUM(tbl_soal.nilai) as total_skor'))
-            ->groupBy('tbl_team.nama_team')
+            ->groupBy('tbl_team.img','tbl_team.nama_team')
             ->orderByDesc('total_skor')
             ->limit(3)
             ->get();
