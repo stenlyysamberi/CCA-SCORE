@@ -15,11 +15,11 @@
     <div class="container-fluid">
       <div class="card">
         <div class="card-header">
-          <p>Hello</p>
+          <p></p>
         </div>
 
         <div class="card-body">
-          <h5 class="card-title"><input type="button" value="ADD" class="btn btn-success"></h5>
+          <h5 class="card-title"><input type="button" value="TAMBA SOAL" class="btn btn-success"></h5>
           <table class="table table-bordered table-striped">
             <thead>
               <tr>
@@ -88,6 +88,7 @@
 
                   <div class="col-sm-6">
                     <label for="exampleFormControlSelect1">Score</label>
+                    <input hidden type="text" id="id_soal">
                     <input type="number" id="nilai" class="form-control">
                   </div>
                   
@@ -107,6 +108,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+          <button type="button" id="update" class="btn btn-success" >UPDATED</button>
         </div>
       </div>
     </div>
@@ -130,10 +132,31 @@
           modal.find('#soal').val(response.soal);
           modal.find('#team').val(response.id_tim);
           modal.find('#nilai').val(response.nilai);
-          modal.find('#id').val(response.id);
+          modal.find('#id_soal').val(response.id_soal);
       }});
 
+      $('#update').click(function(){
+        var id = $('#id_soal').val();
+        var soal = $('#soal').val();
+        var id_tim = $('#id_tim').val();
+        var nilai = $('#nilai').val();
 
+        $.ajax({
+          type: "POST",
+          url: "/api/ubah/",
+          data: {'id_soal' : id,'soal' : soal,'id_tim':id_tim,'nilai':nilai},
+          dataType: "JSON",
+          success: function (response) {
+            // console.log(response);
+            if (response.pesan = true) {
+              alert("Update Berhasil")
+            }else{
+              alert("Gagal Update")
+            }
+          }
+        });
+
+      })
 
 
 
