@@ -38,9 +38,9 @@
                         <td>{{ $item->nilai}}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                <button type="button" class="btn btn-danger">Left</button>
-                                <button type="button" class="btn btn-warning">Middle</button>
-                                <button type="button" class="btn btn-success">Right</button>
+                                <button type="button" class="btn btn-danger">Deleted</button>
+                                <button type="button" class="btn btn-warning">Updated</button>
+                                <button type="button" class="btn btn-success">View</button>
                               </div>
                         </td>
                       </tr>
